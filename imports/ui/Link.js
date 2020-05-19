@@ -1,4 +1,5 @@
 import React from 'react'
+import { Meteor } from 'meteor/meteor'
 import { Accounts } from 'meteor/accounts-base'
 import { Links } from '../api/links'
 import LinksList from './LinksList'
@@ -12,7 +13,7 @@ class Link extends React.Component {
     const url = this.refs.url.value.trim()
 
     if (url) {
-      Links.insert({ url })
+      Meteor.call('links.insert', url)
       this.refs.url.value = ''
     }
   }

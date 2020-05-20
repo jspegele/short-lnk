@@ -1,3 +1,3 @@
-# Short Lnk
+# TnyLnk
 
-Coming soon. A short link generator similart bit.ly or tinyurl.
+A link shortening service--coming soon.

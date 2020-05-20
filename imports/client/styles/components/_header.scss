@@ -1,0 +1,14 @@
+.header {
+  background: $header-bg;
+  color: $header-color;
+}
+
+.header__content {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__title {
+  margin: 0;
+}

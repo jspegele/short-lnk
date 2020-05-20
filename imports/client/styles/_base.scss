@@ -11,7 +11,7 @@ html {
 
 body {
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
-  font-size: $base-font-size;
+  font-size: $font-size-base;
 }
 
 h1 {
@@ -19,13 +19,15 @@ h1 {
   margin-bottom: $space;
 }
 
-a {
-  color: #000;
+h2 {
+  font-size: $font-size-large;
+  margin-bottom: $space;
 }
 
-input[type=text], input[type=email], input[type=password] {
-  border: 1px solid $input-border;
-  font-size: $base-font-size;
+p {
   margin-bottom: $space;
-  padding: .8rem 1rem;
+}
+
+a {
+  color: #000;
 }

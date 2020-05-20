@@ -1,15 +1,17 @@
 import React from 'react'
 
-import PrivateHeader from './PrivateHeader'
+import Header from './Header'
 import LinksListFilters from './LinksListFilters'
 import LinksList from './LinksList'
 import AddLink from './AddLink'
 
 export default () => (
   <>
-    <PrivateHeader title="Your Links" />
-    <LinksListFilters />
-    <AddLink />
-    <LinksList />
+    <Header title="TnyLnk" />
+    <div className="wrapper">
+      <LinksListFilters />
+      <AddLink />
+      <LinksList />
+    </div>
   </>
 )

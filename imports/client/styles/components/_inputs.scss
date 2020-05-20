@@ -1,0 +1,15 @@
+input[type=text], input[type=email], input[type=password] {
+  border: 1px solid $input-border;
+  font-size: $font-size-base;
+  margin-bottom: $space;
+  padding: $input-spacing;
+}
+
+.checkbox {
+  display: block;
+  margin-bottom: $space;
+}
+
+.checkbox__box {
+  margin-right: $space / 2;
+}

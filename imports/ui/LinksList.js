@@ -25,7 +25,7 @@ export default class LinksList extends React.Component {
   componentWillUnmount() {
     this.linksTracker.stop()
   }
-  renderLinksListItems = () => {
+  renderLinksListItems() {
     return this.state.links.map(link => {
       const shortUrl = Meteor.absoluteUrl(link._id)
       return <LinksListItem key={link._id} shortUrl={shortUrl} {...link} />

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Meteor } from 'meteor/meteor'
 
-class Login extends React.Component {
+export default class Login extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -42,5 +42,3 @@ class Login extends React.Component {
     )
   }
 }
-
-export default Login

@@ -1,8 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+
 import { Accounts } from 'meteor/accounts-base'
 
-class Signup extends React.Component {
+export default class Signup extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -50,5 +51,3 @@ class Signup extends React.Component {
     )
   }
 }
-
-export default Signup

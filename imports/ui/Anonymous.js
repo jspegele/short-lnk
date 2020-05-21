@@ -6,7 +6,7 @@ import { FaLink } from 'react-icons/fa'
 
 import { Links } from '../api/links'
 import Header from './Header'
-import AddLinkAnonymous from './AddLinkAnonymous'
+import AddLinkForm from './AddLinkForm'
 import LinksListItem from './LinksListItem'
 
 export default class Anonymous extends React.Component {
@@ -38,7 +38,7 @@ export default class Anonymous extends React.Component {
             Enter a link below to generate a shortened alias that you can easily share 
             on social media, in email, messaging, etc.
           </p>
-          <AddLinkAnonymous />
+          <AddLinkForm />
           {this.state.links.length > 0 && (
             <div>
               <FlipMove maintainContainerHeight={true}>

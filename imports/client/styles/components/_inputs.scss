@@ -1,8 +1,14 @@
 input[type=text], input[type=email], input[type=password] {
   border: 1px solid $input-border;
+  border-radius: $border-radius-base;
   font-size: $font-size-base;
   margin-bottom: $space;
   padding: $input-spacing;
+}
+
+.add-link {
+  flex-grow: 1;
+  margin-right: $space;
 }
 
 .checkbox {

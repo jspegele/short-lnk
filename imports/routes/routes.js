@@ -8,17 +8,17 @@ import { v4 as uuidv4 } from 'uuid';
 import Anonymous from './../ui/Anonymous'
 import Signup from './../ui/Signup'
 import Login from './../ui/Login'
-import Link from '../ui/Link'
+import Dashboard from '../ui/Dashboard'
 import NotFound from './../ui/NotFound'
 
 export const browserHistory = createBrowserHistory();
 
 const unauthenticatedPages = ['/', 'login', '/signup']
-const authenticatedPages = ['/links']
+const authenticatedPages = ['/dashboard']
 
 const onEnterPublicPage = (Component) => {
   if (Meteor.userId()) {
-      return <Redirect to="/links" />
+      return <Redirect to="/dashboard" />
   } else {
       return <Component />
   }
@@ -56,7 +56,7 @@ export const routes = (
       <Route exact path="/" render={() => onEnterPublicPage(Anonymous)} />
       <Route path="/login" render={() => onEnterPublicPage(Login)} />
       <Route path="/signup" render={() => onEnterPublicPage(Signup)} />
-      <Route path="/links" render={() => onEnterPrivatePage(Link)} />
+      <Route path="/dashboard" render={() => onEnterPrivatePage(Dashboard)} />
       <Route path="*" component={NotFound} />
     </Switch>
   </Router>

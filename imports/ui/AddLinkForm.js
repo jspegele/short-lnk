@@ -2,7 +2,7 @@ import React from 'react'
 import { Meteor } from 'meteor/meteor'
 import { Session } from 'meteor/session'
 
-export default class AddLinkAnonymous extends React.Component {
+export default class AddLinkForm extends React.Component {
   state = {
     url: '',
     error: ''
@@ -17,7 +17,6 @@ export default class AddLinkAnonymous extends React.Component {
     Meteor.call('links.insert', url, Session.get('tnylnkAnonId'), (err, res) => {
       if (!err) {
         this.setState({ url: '', error: '' })
-        // this.props.handleAddUrl(url)
       } else {
         this.setState({ error: err.reason })
       }
@@ -27,15 +26,16 @@ export default class AddLinkAnonymous extends React.Component {
     return (
       <div>
         {this.state.error && <p>{this.state.error}</p>}
-        <form className="boxed-view__form" onSubmit={this.onSubmit}>
+        <form className="boxed-view__form boxed-view__form--add-link" onSubmit={this.onSubmit}>
           <input
+            className="add-link"
             type="text"
             placeholder="URL"
             ref="url"
             onChange={this.onUrlChange}
             value={this.state.url}
           />
-          <button className="button">Add Link</button>
+          <button className="button button--primary">Add Link</button>
         </form>
       </div>
     )

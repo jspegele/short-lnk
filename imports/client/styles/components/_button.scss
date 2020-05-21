@@ -1,18 +1,24 @@
 .button {
-  background-color: $button-bg;
+  background-color: $primary;
   border: none;
-  color: $button-color;
+  border-radius: $border-radius-base;
+  color: $on-primary;
   cursor: pointer;
   font-size: $font-size-base;
   line-height: 1.2;
   margin-bottom: $space;
+  outline: none;
   padding: $input-spacing;
 }
 
+.button--primary {
+  padding: $input-spacing 5rem;
+}
+
 .button--secondary {
-  background-color: $button-secondary-bg;
-  border: 1px solid $button-secondary-border-color;
-  color: $button-secondary-color;
+  background-color: $blue-grey50;
+  border: 1px solid $blue-grey400;
+  color: $blue-grey900;
 }
 
 .button--link {
@@ -21,11 +27,28 @@
 }
 
 .button--pill {
-  background-color: transparent;
-  border: 1px solid $button-pill-color;
-  color: $button-pill-color;
+  background-color: lighten($link, 47%);
+  color: $link;
   margin: 0 ($space / 2) 0 0;
-  padding: .3rem .8rem;
+  padding: ($space / 2) $space;
+  transition: background-color .3s;
+
+  &:hover {
+    background-color: lighten($link, 42%);
+  }
+}
+
+.button--pill-alt {
+  background-color: $link;
+  color: #fff;
+
+  &:hover {
+    background-color: $link;
+  }
+}
+
+.button--copy {
+  min-width: 8.5rem;
 }
 
 .button--link-text {

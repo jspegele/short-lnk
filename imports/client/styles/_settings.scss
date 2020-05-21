@@ -1,41 +1,39 @@
 // Colors
-$primary: #5b4681;
-$grey: #ddd;
-$light-grey: #f9f9f9;
-$dark-grey: #777;
+$primary: #6200ee;
+$primary-light:#9e47ff;
+$primary-dark: #3700b3;
+$secondary: #03dac5;
+$secondary-light: #66fff8;
+$secondary-dark: #00a895;
 $on-primary: #fff;
+$on-secondary: #fff;
+$link: #1976d2;
+$error: #d32f2f;
+
+$blue-grey50: #ECEFF1;
+$blue-grey100: #CFD8DC;
+$blue-grey200: #B0BEC5;
+$blue-grey300: #90A4AE;
+$blue-grey400: #78909C;
+$blue-grey500: #607D8B;
+$blue-grey600: #546E7A;
+$blue-grey700: #455A64;
+$blue-grey800: #37474F;
+$blue-grey900: #263238;
 
 // Spacing
 $space: 1.4rem;
 $space-large: 1.8rem;
-$site-max-width: 64rem;
+$site-max-width: 100rem;
 
 // Font sizes
-$font-size-base: 1.4rem;
-$font-size-large: 1.8rem;
+$font-size-base: 1.6rem;
+$font-size-large: 2rem;
 $font-size-xlarge: 2.4rem;
 
+// Border radiuses
+$border-radius-base: .4rem;
+
 // Form inputs
-$input-border: $grey;
+$input-border: $blue-grey400;
 $input-spacing: 1rem;
-
-// Boxed view
-$boxed-view-overlay-bg: $grey;
-$boxed-view-bg: #fff;
-
-// Button
-$button-bg: $primary;
-$button-color: #fff;
-$button-pill-color: $primary;
-$button-secondary-bg: $light-grey;
-$button-secondary-color: $dark-grey;
-$button-secondary-border-color: $grey;
-
-// header
-$header-bg: $primary;
-$header-color: $on-primary;
-
-// Item
-$item-bg: $light-grey;
-$item-border: darken($item-bg, 8%);
-$item-text-color: $dark-grey;

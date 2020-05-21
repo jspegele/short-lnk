@@ -21,38 +21,34 @@ export default class LinksListItem extends React.Component {
     this.clipboard.destroy()
   }
   renderStats() {
-    const visitMessage = this.props.visitedCount === 1 ? 'visit' : 'visits'
+    const visitMessage = this.props.visitedCount === 1 ? 'click' : 'clicks'
     let visitedMessage = null
 
     if (typeof this.props.lastVisitedAt === 'number') {
-      visitedMessage = `(visited ${moment(this.props.lastVisitedAt).fromNow()})`
+      visitedMessage = `(last clicked ${moment(this.props.lastVisitedAt).fromNow()})`
     }
 
-    return <p className="item__message">
-      {this.props.visitedCount} {visitMessage} {visitedMessage}
-    </p>
+    return <div>{this.props.visitedCount} {visitMessage} {visitedMessage}</div>
   }
   render() {
     return (
       <div className="item">
-        <p>{this.props.url}</p>
-        <p className="item__message">{this.props.shortUrl}</p>
-        {!this.props.anonymous && this.renderStats()}
-        <p>{moment(this.props.createdAt).fromNow()}</p>
+        <div className="item__title">
+          <div className="item__message">
+            <div className="item__url"><span>{this.props.url}</span></div>
+            <div>{!this.props.anonymous && this.renderStats()}</div>
+          </div>
+        </div>
+        <div className="item__shortUrl">
+          <a href={this.props.shortUrl} target="_blank">{this.props.shortUrl}</a>
+        </div>
         <div className="item__actions">
-          <a
-            className="button button--link button--pill"
-            href={this.props.shortUrl}
-            target="_blank"
-          >
-            Visit
-          </a>
           <button
-            className="button button--pill"
+            className={this.state.justCopied ? "button button--pill button--pill-alt button--copy" : "button button--pill button--copy"}
             ref="copy"
             data-clipboard-text={this.props.shortUrl}
           >
-            {this.state.justCopied ? 'Copied' : 'Copy'}
+            {this.state.justCopied ? 'Copied!' : 'Copy'}
           </button>
           {!this.props.anonymous && (
             <button

@@ -3,14 +3,14 @@ import React from 'react'
 import Header from './Header'
 import LinksListFilters from './LinksListFilters'
 import LinksList from './LinksList'
-import AddLinkModal from './AddLinkModal'
+import AddLinkForm from './AddLinkForm'
 
 export default () => (
   <>
     <Header />
     <div className="wrapper">
       <LinksListFilters />
-      <AddLinkModal />
+      <AddLinkForm />
       <LinksList />
     </div>
   </>

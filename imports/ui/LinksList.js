@@ -19,7 +19,7 @@ export default class LinksList extends React.Component {
       Meteor.subscribe('links')
       const links = Links.find({
         visible: Session.get('showVisible')
-      }).fetch()
+      }, {sort: {createdAt: -1}}).fetch()
       this.setState({ links })
     })
   }

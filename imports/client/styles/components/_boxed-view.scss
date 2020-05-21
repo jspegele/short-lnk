@@ -1,6 +1,6 @@
 .boxed-view {
   align-items: center;
-  background: $boxed-view-overlay-bg;
+  background: $blue-grey400;
   display: flex;
   height: 100vh;
   justify-content: center;
@@ -8,7 +8,7 @@
 }
 
 .boxed-view--modal {
-  background: fade-out($boxed-view-overlay-bg, .3);
+  background: fade-out($blue-grey400, .3);
   position: fixed;
   top: 0;
   right: 0;
@@ -17,7 +17,8 @@
 }
 
 .boxed-view__box {
-  background-color: $boxed-view-bg;
+  background-color: #fff;
+  border-radius: $border-radius-base;
   padding: 2.4rem;
   text-align: center;
   width: 24rem;
@@ -26,4 +27,8 @@
 .boxed-view__form {
   display: flex;
   flex-direction: column;
+}
+
+.boxed-view__form--add-link {
+  flex-direction: row;
 }

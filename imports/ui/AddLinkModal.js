@@ -1,5 +1,6 @@
 import React from 'react'
 import { Meteor } from 'meteor/meteor'
+import { Session } from 'meteor/session'
 import Modal from 'react-modal'
 
 export default class AddLink extends React.Component {
@@ -28,7 +29,7 @@ export default class AddLink extends React.Component {
     e.preventDefault()
     const { url } = this.state
 
-    Meteor.call('links.insert', url, (err, res) => {
+    Meteor.call('links.insert', url, Session.get('tnylnkAnonId'), (err, res) => {
       if (!err) {
         this.handleModalClose()
       } else {

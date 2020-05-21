@@ -18,10 +18,12 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-flip-move": "^3.0.4",
+    "react-icons": "^3.10.0",
     "react-modal": "^3.11.2",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "shortid": "^2.2.15",
-    "simpl-schema": "^1.7.2"
+    "simpl-schema": "^1.7.2",
+    "uuid": "^8.1.0"
   }
 }

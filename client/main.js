@@ -13,5 +13,6 @@ Tracker.autorun(() => {
 
 Meteor.startup(() => {
   Session.set('showVisible', true)
+  Session.set('tnylnkAnonId', localStorage.getItem('tnylnkAnonId'))
   ReactDOM.render(routes, document.getElementById('app'))
 })

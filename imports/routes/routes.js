@@ -1,7 +1,11 @@
 import { Meteor } from 'meteor/meteor'
+import { Session } from 'meteor/session'
 import React from 'react'
 import { Router, Route, Switch, Redirect } from 'react-router'
 import { createBrowserHistory } from 'history';
+import { v4 as uuidv4 } from 'uuid';
+
+import Anonymous from './../ui/Anonymous'
 import Signup from './../ui/Signup'
 import Login from './../ui/Login'
 import Link from '../ui/Link'
@@ -9,7 +13,7 @@ import NotFound from './../ui/NotFound'
 
 export const browserHistory = createBrowserHistory();
 
-const unauthenticatedPages = ['/', '/signup']
+const unauthenticatedPages = ['/', 'login', '/signup']
 const authenticatedPages = ['/links']
 
 const onEnterPublicPage = (Component) => {
@@ -29,6 +33,12 @@ const onEnterPrivatePage = (Component) => {
 }
 
 export const onAuthChange = (isAuthenticated) => {
+  if(!isAuthenticated){
+    if (!localStorage.getItem('tnylnkAnonId')) {
+      localStorage.setItem('tnylnkAnonId', uuidv4())
+    }
+  }
+
   const pathname = location.pathname
   const isUnauthenticatedPage = unauthenticatedPages.includes(pathname)
   const isAuthenticatedPage = authenticatedPages.includes(pathname)
@@ -43,7 +53,8 @@ export const onAuthChange = (isAuthenticated) => {
 export const routes = (
   <Router history={browserHistory}>
     <Switch>
-      <Route exact path="/" render={() => onEnterPublicPage(Login)} />
+      <Route exact path="/" render={() => onEnterPublicPage(Anonymous)} />
+      <Route path="/login" render={() => onEnterPublicPage(Login)} />
       <Route path="/signup" render={() => onEnterPublicPage(Signup)} />
       <Route path="/links" render={() => onEnterPrivatePage(Link)} />
       <Route path="*" component={NotFound} />

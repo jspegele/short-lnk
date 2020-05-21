@@ -7,14 +7,22 @@ export const Links = new Mongo.Collection('links')
 
 if (Meteor.isServer) {
   Meteor.publish('links', function () {
-    return Links.find({ userId: this.userId })
+    if (this.userId) {
+      return Links.find({ userId: this.userId })
+    } else {
+      return Links.find({ anonymous: true })
+    }
   })
 }
 
 Meteor.methods({
-  'links.insert'(url) {
+  'links.insert'(url, localId) {
+    let anonymous = false
+    let userId = this.userId
     if (!this.userId) {
-      throw new Meteor.Error('not-authorized')
+      // throw new Meteor.Error('not-authorized')
+      anonymous = true
+      userId = localId
     }
 
     new SimpleSchema({
@@ -25,14 +33,20 @@ Meteor.methods({
       }
     }).validate({ url })
 
+    const _id = shortid.generate()
+
     Links.insert({
-      _id: shortid.generate(),
+      _id,
       url,
-      userId: this.userId,
+      userId,
+      createdAt: new Date().getTime(),
+      anonymous,
       visible: true,
       visitedCount: 0,
       lastVisitedAt: null
     })
+
+    return _id
   },
 
   'links.setVisibility'(_id, visible) {

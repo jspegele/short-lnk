@@ -37,7 +37,8 @@ export default class LinksListItem extends React.Component {
       <div className="item">
         <p>{this.props.url}</p>
         <p className="item__message">{this.props.shortUrl}</p>
-        {this.renderStats()}
+        {!this.props.anonymous && this.renderStats()}
+        <p>{moment(this.props.createdAt).fromNow()}</p>
         <div className="item__actions">
           <a
             className="button button--link button--pill"
@@ -53,14 +54,16 @@ export default class LinksListItem extends React.Component {
           >
             {this.state.justCopied ? 'Copied' : 'Copy'}
           </button>
-          <button
-            className="button button--pill"
-            onClick={() => {
-              Meteor.call('links.setVisibility', this.props._id, !this.props.visible)
-            }}
-          >
-            {this.props.visible ? 'Hide' : 'Unhide'}
-          </button>
+          {!this.props.anonymous && (
+            <button
+              className="button button--pill"
+              onClick={() => {
+                Meteor.call('links.setVisibility', this.props._id, !this.props.visible)
+              }}
+            >
+              {this.props.visible ? 'Hide' : 'Unhide'}
+            </button>
+          )}
         </div>
       </div>
     )
@@ -71,6 +74,8 @@ LinksListItem.propTypes = {
   _id: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
   userId: PropTypes.string.isRequired,
+  createdAt: PropTypes.number.isRequired,
+  anonymous: PropTypes.bool.isRequired,
   visible: PropTypes.bool.isRequired,
   shortUrl: PropTypes.string.isRequired,
   visitedCount: PropTypes.number.isRequired,

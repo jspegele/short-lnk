@@ -3,6 +3,9 @@ import { Meteor } from 'meteor/meteor'
 import PropTypes from 'prop-types'
 import Clipboard from 'clipboard'
 import moment from 'moment'
+import { RiBarChart2Line, RiTimeLine } from 'react-icons/ri'
+
+import Label from './Label'
 
 export default class LinksListItem extends React.Component {
   state = {
@@ -22,13 +25,15 @@ export default class LinksListItem extends React.Component {
   }
   renderStats() {
     const visitMessage = this.props.visitedCount === 1 ? 'click' : 'clicks'
-    let visitedMessage = null
 
-    if (typeof this.props.lastVisitedAt === 'number') {
-      visitedMessage = `(last clicked ${moment(this.props.lastVisitedAt).fromNow()})`
-    }
-
-    return <div>{this.props.visitedCount} {visitMessage} {visitedMessage}</div>
+    return (
+      <div className="item__stats">
+        <RiBarChart2Line size="1.68rem" />
+        <Label key={this.props._id + 'visitCount'} text={this.props.visitedCount.toString().concat(' ' + visitMessage)} />
+        <RiTimeLine size="1.6rem" />
+        <Label key={this.props._id + 'lastVist'} text={moment(this.props.lastVisitedAt).fromNow()} />
+      </div>
+    )
   }
   render() {
     return (

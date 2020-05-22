@@ -35,7 +35,7 @@ export default class AddLinkForm extends React.Component {
             onChange={this.onUrlChange}
             value={this.state.url}
           />
-          <button className="button button--primary">Add Link</button>
+          <button className="button button--primary">Shorten</button>
         </form>
       </div>
     )

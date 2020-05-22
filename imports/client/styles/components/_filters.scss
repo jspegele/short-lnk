@@ -1,0 +1,21 @@
+.filters {
+  align-items: center;
+  display: flex;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.filters__search {
+  flex-grow: 1;
+  margin-right: $space;
+  max-width: 40rem;
+}
+
+.filters__sort {
+  margin-right: $space;
+  padding-top: $input-spacing - .1rem;
+}
+
+.filters__visible {
+  margin-left: auto;
+}

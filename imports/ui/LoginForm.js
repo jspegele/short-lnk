@@ -4,7 +4,7 @@ import { Meteor } from 'meteor/meteor'
 
 import { browserhistory, browserHistory } from '../routes/routes'
 
-export default class Login extends React.Component {
+export default class LoginForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -27,26 +27,24 @@ export default class Login extends React.Component {
     })
   }
   render() {
-    return (
-      <div className="boxed-view">
-        <div className="boxed-view__box">
-          <h1>Short Lnk</h1>
+    return  (
+      <>
+        <h1>Login to TnyLnk</h1>
 
-          {this.state.error && <p>{this.state.error}</p>}
+        {this.state.error && <p className="error">{this.state.error}</p>}
 
-          <form
-            className="boxed-view__form"
-            onSubmit={this.onSubmit}
-            noValidate
-          >
-            <input type="email" ref="email" name="email" placeholder="Email" />
-            <input type="password" ref="password" name="password" placeholder="Password" />
-            <button className="button">Login</button>
-          </form>
+        <form
+          className="boxed-view__form"
+          onSubmit={this.onSubmit}
+          noValidate
+        >
+          <input type="email" ref="email" name="email" placeholder="Email" autoFocus />
+          <input type="password" ref="password" name="password" placeholder="Password" />
+          <button className="button">Login</button>
+        </form>
 
-          <Link to='/signup'>Need an account?</Link>
-        </div>
-      </div>
+        <Link to='/signup'>Need an account?</Link>
+      </>
     )
   }
 }

@@ -25,7 +25,7 @@ export default class AddLinkForm extends React.Component {
   render() {
     return (
       <div>
-        {this.state.error && <p>{this.state.error}</p>}
+        {this.state.error && <p className="error">{this.state.error}</p>}
         <form className="boxed-view__form boxed-view__form--add-link" onSubmit={this.onSubmit}>
           <input
             className="add-link"

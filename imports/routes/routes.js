@@ -6,8 +6,8 @@ import { createBrowserHistory } from 'history';
 import { v4 as uuidv4 } from 'uuid';
 
 import Anonymous from './../ui/Anonymous'
-import Signup from './../ui/Signup'
-import Login from './../ui/Login'
+import SignupPage from './../ui/SignupPage'
+import LoginPage from './../ui/LoginPage'
 import Dashboard from '../ui/Dashboard'
 import NotFound from './../ui/NotFound'
 
@@ -54,8 +54,8 @@ export const routes = (
   <Router history={browserHistory}>
     <Switch>
       <Route exact path="/" render={() => onEnterPublicPage(Anonymous)} />
-      <Route path="/login" render={() => onEnterPublicPage(Login)} />
-      <Route path="/signup" render={() => onEnterPublicPage(Signup)} />
+      <Route path="/login" render={() => onEnterPublicPage(LoginPage)} />
+      <Route path="/signup" render={() => onEnterPublicPage(SignupPage)} />
       <Route path="/dashboard" render={() => onEnterPrivatePage(Dashboard)} />
       <Route path="*" component={NotFound} />
     </Switch>

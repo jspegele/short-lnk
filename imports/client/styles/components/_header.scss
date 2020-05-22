@@ -7,6 +7,16 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
+
+  a {
+    color: $on-primary;
+    text-decoration: none;
+    transition: color .3s;
+
+    &:hover {
+      color: darken($on-primary,  18%)
+    }
+  }
 }
 
 .header__title {

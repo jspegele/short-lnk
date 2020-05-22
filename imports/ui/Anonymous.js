@@ -38,7 +38,7 @@ export default class Anonymous extends React.Component {
             Enter a link below to generate a shortened alias that you can easily share 
             on social media, in email, messaging, etc.
           </p>
-          <AddLinkForm />
+          <AddLinkForm/>
           {this.state.links.length > 0 && (
             <div>
               <FlipMove maintainContainerHeight={true}>

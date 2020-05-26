@@ -1,52 +1,113 @@
 .item {
-  align-items: center;
   background: $blue-grey50;
   border: 1px solid $blue-grey200;
   border-radius: $border-radius-base;
   display: flex;
-  justify-content: flex-end;
+  flex-wrap: wrap;
   margin: $space 0;
-  padding: ($space * 2) $space;
+  min-width: 28rem;
+  padding: $space;
+
+  @media (min-width: $tablet-breakpoint) {
+    flex-direction: column;
+  }
 }
 
-.item__title {
-  margin-right: auto;
-  max-width: $site-max-width / 2;
+.item__details {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  overflow: hidden;
+
+  @media (min-width: $desktop-breakpoint) {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
 }
 
 .item__url {
+  font-size: $font-size-large;
+  font-weight: 300;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: $font-size-xlarge;
-  font-weight: 300;
-  margin-left: .3rem;
+  width: auto;
 
   span {
     font-size: $font-size-base;
     font-weight: 400;
+  }
+
+  @media (min-width: $tablet-breakpoint) {
+    max-width: $site-max-width * (2 / 3);
   }
 }
 
 .item__stats {
   align-items: flex-end;
   display: flex;
+  flex-shrink: 0;
   
   svg {
     margin-bottom: .5rem;
   }
 }
 
-.item__shortUrl {
-  margin-right: $space * 2;
-  a {
-    color: $link;
-    text-decoration: none;
+.item__actions {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-top: .6rem;
+  width: 100%;
+
+  .button {
+    font-size: $font-size-small;
+    margin-right: $space / 2;
+    padding: .6rem 1rem;
+  }
+
+  .button--copy {
+    width: 5.8rem;
+  }
+  
+  .button--copied {
+    padding-left: .4rem;
+    padding-right: .4rem;
+    width: 5.8rem;
+  }
+
+  @media (min-width: $tablet-breakpoint) {
+    align-items: center;
+    flex-direction: row;
+    margin-top: $space;
+    width: auto;
   }
 }
 
-.item__actions {
-  display: flex;
+.item__shortUrl {
+  font-size: $font-size-small;
+  margin-right: $space;
+  overflow: hidden;
+
+  a {
+    color: $link;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.item__action-buttons {
+  margin-top: .6rem;
+
+  @media (min-width: $tablet-breakpoint) {
+    margin-top: 0;
+  }
 }
 
 .item__message {

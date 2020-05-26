@@ -2,7 +2,6 @@ import React from 'react'
 import { Tracker } from 'meteor/tracker'
 import { Session } from 'meteor/session'
 import FlipMove from 'react-flip-move'
-import { FaLink } from 'react-icons/fa'
 
 import { Links } from '../api/links'
 import Header from './Header'
@@ -31,7 +30,6 @@ export default class Anonymous extends React.Component {
         <Header />
         <div className="wrapper">
           <div className="centered">
-            <FaLink size="8.4rem" />
             <h1>Easy, Readable, Tiny Links</h1>
           </div>
           <p>

@@ -1,59 +1,67 @@
 .button {
-  background-color: $primary;
-  border: none;
+  background: #fff;
+  border: 1px solid #333;
   border-radius: $border-radius-base;
-  color: $on-primary;
+  color: #333;
   cursor: pointer;
   font-size: $font-size-base;
-  line-height: 1.2;
-  margin-bottom: $space;
+  line-height: 1;
   outline: none;
-  padding: $input-spacing;
+  padding: 1rem 2rem;
+  transition: background-color .3s;
+
+  &:active {
+    -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+       -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+            box-shadow: inset 0px 0px 5px #c1c1c1;
+     outline: none;
+  }
 }
 
 .button--primary {
-  padding: $input-spacing 5rem;
-}
-
-.button--secondary {
-  background-color: $blue-grey50;
-  border: 1px solid $blue-grey400;
-  color: $blue-grey900;
-}
-
-.button--link {
-  display: block;
-  text-decoration: none;
-}
-
-.button--pill {
-  background-color: lighten($link, 47%);
-  color: $link;
-  margin: 0 ($space / 2) 0 0;
-  padding: ($space / 2) $space;
-  transition: background-color .3s;
-
-  &:hover {
-    background-color: lighten($link, 42%);
-  }
-}
-
-.button--pill-alt {
-  background-color: $link;
+  background-color: $button-color;
+  border-color: $button-color;
   color: #fff;
 
   &:hover {
-    background-color: $link;
+    background: darken($button-color, 7%);
   }
 }
 
-.button--copy {
-  min-width: 8.5rem;
+.button--secondary {
+  background-color: #fff;
+  border-color: lighten($button-color, 35%);
+  color: $button-color;
+
+  &:hover {
+    background: lighten($button-color, 35%);
+    color: $button-color;
+  }
 }
 
-.button--link-text {
+.button--tertiary {
   background: none;
-  margin: 0;
-  padding: 0;
+  border: none;
+  color: $button-color;
+  padding: 1rem 1.4rem;
   text-decoration: underline;
+
+  &:hover {
+    background: lighten($button-color, 48%);
+  }
+}
+
+.button--special {
+  background-color: #81C784;
+  border-color: #81C784;
+}
+
+.button--destructive {
+  background-color: $error;
+  border-color: $error;
+  color: #fff;
+
+  &:hover {
+    background: darken($error, 7%);
+  }
 }

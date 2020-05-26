@@ -1,6 +1,5 @@
 .header {
-  background: $primary;
-  color: $on-primary;
+  color: $primary;
 }
 
 .header__content {
@@ -9,12 +8,12 @@
   justify-content: space-between;
 
   a {
-    color: $on-primary;
+    color: $primary;
     text-decoration: none;
     transition: color .3s;
 
     &:hover {
-      color: darken($on-primary,  18%)
+      color: darken($primary,  8%)
     }
   }
 }

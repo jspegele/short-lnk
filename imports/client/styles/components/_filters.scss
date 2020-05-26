@@ -1,19 +1,30 @@
 .filters {
-  align-items: center;
   display: flex;
-  margin: 1rem 0 0;
+  flex-direction: column;
   padding: 0;
+
+  @media (min-width: $tablet-breakpoint) {
+    align-items: center;
+    flex-direction: row;
+    margin: 1rem 0 0;
+  }
 }
 
 .filters__search {
   flex-grow: 1;
-  margin-right: $space;
-  max-width: 40rem;
+
+  @media (min-width: $tablet-breakpoint) {
+    margin-right: $space;
+    max-width: 40rem;
+  }
 }
 
 .filters__sort {
-  margin-right: $space;
   padding-top: $input-spacing - .1rem;
+
+  @media (min-width: $tablet-breakpoint) {
+    margin-right: $space;
+  }
 }
 
 .filters__visible {

@@ -4,12 +4,15 @@ import PropTypes from 'prop-types'
 import Clipboard from 'clipboard'
 import moment from 'moment'
 import { RiBarChart2Line, RiTimeLine } from 'react-icons/ri'
+import Modal from 'react-modal'
 
 import Label from './Label'
+import ConfirmDelete from './ConfirmDelete'
 
 export default class LinksListItem extends React.Component {
   state = {
-    justCopied: false
+    justCopied: false,
+    modal: false
   }
   componentDidMount() {
     this.clipboard = new Clipboard(this.refs.copy)
@@ -35,36 +38,73 @@ export default class LinksListItem extends React.Component {
       </div>
     )
   }
+  handleHide = () => {
+    Meteor.call('links.setVisibility', this.props._id, !this.props.visible)
+  }
+  handleModalOpen = () => {
+    this.setState({ modal: true })
+  }
+  handleModalClose = () => {
+    this.setState({ modal: false })
+  }
+  handleDelete = () => {
+    Meteor.call('links.remove', this.props._id)
+  }
   render() {
     return (
       <div className="item">
-        <div className="item__title">
-          <div className="item__message">
-            <div className="item__url"><span>{this.props.url}</span></div>
-            <div>{!this.props.anonymous && this.renderStats()}</div>
+        <div className="item__details">
+          <div className="item__url item__message" title={this.props.url}><span>{this.props.url}</span></div>
+          <div className="item__stats">
+            <div className="item__message">
+              {!this.props.anonymous && this.renderStats()}
+            </div>
           </div>
         </div>
-        <div className="item__shortUrl">
-          <a href={this.props.shortUrl} target="_blank">{this.props.shortUrl}</a>
-        </div>
         <div className="item__actions">
-          <button
-            className={this.state.justCopied ? "button button--pill button--pill-alt button--copy" : "button button--pill button--copy"}
-            ref="copy"
-            data-clipboard-text={this.props.shortUrl}
-          >
-            {this.state.justCopied ? 'Copied!' : 'Copy'}
-          </button>
-          {!this.props.anonymous && (
+          <div className="item__shortUrl">
+            <a href={this.props.shortUrl} target="_blank">{this.props.shortUrl}</a>
+          </div>
+          <div className="item__action-buttons">
             <button
-              className="button button--pill"
-              onClick={() => {
-                Meteor.call('links.setVisibility', this.props._id, !this.props.visible)
-              }}
+              className={this.state.justCopied ? "button button--special button--copied" : "button button--secondary button--copy"}
+              ref="copy"
+              data-clipboard-text={this.props.shortUrl}
             >
-              {this.props.visible ? 'Hide' : 'Unhide'}
+              {this.state.justCopied ? 'Copied!' : 'Copy'}
             </button>
-          )}
+            {!this.props.anonymous && (
+              <button
+                className="button button--secondary"
+                onClick={this.handleHide}
+              >
+                {this.props.visible ? 'Hide' : 'Unhide'}
+              </button>
+            )}
+            {!this.props.anonymous && (
+              <>
+                <button
+                  className="button button--tertiary"
+                  onClick={this.handleModalOpen}
+                >
+                  Delete
+                </button>
+                <Modal
+                  isOpen={this.state.modal}
+                  contentLabel="Delete link"
+                  onRequestClose={this.handleModalClose}
+                  className="boxed-view__box"
+                  overlayClassName="boxed-view boxed-view--modal"
+                >
+                  <ConfirmDelete
+                    handleModalClose={this.handleModalClose}
+                    handleHide={this.handleHide}
+                    handleDelete={this.handleDelete}
+                  />
+                </Modal>
+              </>
+            )}
+          </div>
         </div>
       </div>
     )

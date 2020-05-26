@@ -4,6 +4,7 @@ import { Tracker } from 'meteor/tracker'
 import { Accounts } from 'meteor/accounts-base'
 import { Link } from 'react-router-dom'
 import Modal from 'react-modal'
+import { FaLink } from 'react-icons/fa'
 
 import LoginForm from './LoginForm'
 
@@ -37,11 +38,13 @@ export default class PrivateHeader extends React.Component {
       <div className="header">
         <div className="wrapper">
           <div className="header__content">
-            <Link to="/"><h1 className="header__title">TnyLnk</h1></Link>
+            <Link to="/">
+              <h1 className="header__title"><FaLink size="2.4rem" /> TnyLnk</h1>
+            </Link>
             {!this.props.hideActions && (
               this.state.loggedIn ? (
                 <button
-                  className="button button--link-text"
+                  className="button button--tertiary"
                   type="button"
                   onClick={() => Accounts.logout()}
                 >
@@ -49,7 +52,7 @@ export default class PrivateHeader extends React.Component {
                 </button>
               ) : (
                 <a
-                  className="button button--link-text"
+                  className="button button--tertiary"
                   onClick={this.handleModalOpen}
                 >
                   Login / Register

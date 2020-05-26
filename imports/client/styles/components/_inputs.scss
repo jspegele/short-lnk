@@ -6,14 +6,12 @@ input[type=text], input[type=email], input[type=password], select {
   padding: $input-spacing;
 }
 
-.add-link {
-  flex-grow: 1;
-  margin-right: $space;
-}
-
 .checkbox {
   display: block;
-  margin-bottom: $space;
+
+  @media (min-width: $tablet-breakpoint) {
+    margin-bottom: $space;
+  }
 }
 
 .checkbox__box {

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Meteor } from 'meteor/meteor'
+import { v4 as uuidv4 } from 'uuid';
 
 import { browserhistory, browserHistory } from '../routes/routes'
 
@@ -30,6 +31,7 @@ export default class LoginForm extends React.Component {
     return  (
       <>
         <h1>Login to TnyLnk</h1>
+        <p>Gain insights into your shared links.</p>
 
         {this.state.error && <p className="error">{this.state.error}</p>}
 

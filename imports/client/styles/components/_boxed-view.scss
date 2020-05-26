@@ -29,17 +29,48 @@
   background-color: #fff;
   border: 1px solid $blue-grey400;
   border-radius: $border-radius-base;
+  margin: 0 ($space * 2);
   padding: 2.4rem;
   text-align: center;
-  width: 24rem;
+  width: 100%;
+
+  @media (min-width: $tablet-breakpoint) {
+    margin: 0;
+    width: 36rem;
+  }
 }
 
 .boxed-view__form {
   display: flex;
   flex-direction: column;
-  margin: ($space * 2) 0;
+  margin: ($space * 2) 0 $space;
+
+  @media (min-width: $tablet-breakpoint) {
+    margin: ($space * 2) 0;
+  }
 }
 
 .boxed-view__form--add-link {
-  flex-direction: row;
+  flex-direction: column;
+  margin-bottom: $space * 2;
+
+  input {
+    flex-grow: 1;
+  
+    @media (min-width: $tablet-breakpoint) {
+      margin-right: $space;
+    }
+  }
+
+  button {
+  
+    @media (min-width: $tablet-breakpoint) {
+      margin-bottom: $space;
+    }
+  }
+
+  @media (min-width: $tablet-breakpoint) {
+    flex-direction: row;
+    margin-bottom: $space;
+  }
 }

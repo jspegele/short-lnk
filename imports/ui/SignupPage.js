@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
 import { Accounts } from 'meteor/accounts-base'
+
 import Header from './Header'
 
 export default class SignupPage extends React.Component {
@@ -40,9 +40,9 @@ export default class SignupPage extends React.Component {
         <div className="boxed-view--content">
           <div className="boxed-view__box">
             <h1>Join TnyLnk</h1>
+            <p>Create an account to manage and gain insights into your links.</p>
 
             {this.state.error && <p className="error">{this.state.error}</p>}
-
             <form
               className="boxed-view__form"
               onSubmit={this.onSubmit}

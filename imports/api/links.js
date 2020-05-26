@@ -49,6 +49,16 @@ Meteor.methods({
     return _id
   },
 
+  'links.remove'(_id) {
+    let itemOwner = Links.findOne({ _id }).userId
+
+    if (!this.userId || this.userId !== itemOwner) {
+      throw new Meteor.Error('not-authorized')
+    }
+
+    Links.remove({ _id })
+  },
+
   'links.setVisibility'(_id, visible) {
     if (!this.userId) {
       throw new Meteor.Error('not-authorized')

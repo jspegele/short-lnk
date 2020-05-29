@@ -1,6 +1,8 @@
 # TnyLnk
 
-A link shortening service--coming soon.
+A link shortening service--development in progress.
+
+[Live Site](https://tny-link.herokuapp.com/)
 
 
 ## NOTICES
